@@ -1,0 +1,39 @@
+body{
+  background-color:#9AC8EB;
+  h2{
+    color: #000;
+    text-align: center;
+    font-size: 50px;
+  
+  }
+}
+
+.frame-inicio{
+  width: 464px;
+  height: 559px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 17px;
+  text-align: center;
+  font-size: 25px;
+  background: #F2FAFF;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+  
+  .campo{
+    color: #AFAFAF;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #AFAFAF;
+    width: 300px
+    
+  }
+  
+  p{
+    padding: 20px;
+    margin:0;
+  }
+}
+
