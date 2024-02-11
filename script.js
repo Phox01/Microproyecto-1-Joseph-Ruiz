@@ -1,5 +1,6 @@
 const usuarios = [];
 const ListaUsuarios = document.getElementById("lista");
+var
 
 function clearText() {
   document.getElementById("name_input").value = "";
@@ -8,9 +9,11 @@ function clearText() {
 function savingPlayerName() {
   //Función para guardar los nombres de los jugadores
   const nombre = document.getElementById("name_input").value;
+  var score = 0;
 
   const usuario = {
     nombre,
+    score,
   };
 
   if (usuarios.length === 4) {
