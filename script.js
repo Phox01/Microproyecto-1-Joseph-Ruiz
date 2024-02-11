@@ -1,5 +1,6 @@
 const usuarios = [];
 const ListaUsuarios = document.getElementById("lista");
+const MatrizBingo = document.getElementById("board");
 var sizeCardBoard = 0;
 
 function getID(element) {
@@ -16,8 +17,6 @@ function getID(element) {
   // window.alert(sizeCardBoard);
 
   var elements = document.getElementsByClassName("size_active");
-
-  // Add a click event listener to each element
   for (var i = 0; i < elements.length; i++) {
     elements[i].classList.replace("size_active", "size");
   }
@@ -28,6 +27,92 @@ function getID(element) {
 
 function clearText() {
   document.getElementById("name_input").value = "";
+}
+
+function generateBingo() {
+  var counter = 0;
+  var counter2 = 0;
+  for (let index = 0; index < 4; index++) {
+    const random_numb_list = [];
+    const templateindex = document.getElementById("template_board");
+    const elementoindex = templateindex.content.cloneNode(true);
+    elementoindex.querySelector(".player").innerText = usuarios[index].nombre;
+    MatrizBingo.appendChild(elementoindex);
+    document.getElementsByClassName("bingo-matrix")[index].id =
+      usuarios[index].nombre;
+
+    for (let i = 0; i < sizeCardBoard; i++) {
+      const board = document.getElementById(usuarios[index].nombre);
+      const templatei = document.getElementById("template_row");
+      const elementoi = templatei.content.cloneNode(true);
+      // elementoi.id = "row" + i;
+      board.appendChild(elementoi);
+      document.getElementsByClassName("row")[counter].id = "row" + index + i;
+      counter++;
+
+      for (let j = 0; j < sizeCardBoard; j++) {
+        const row = document.getElementById("row" + index + i);
+        const templatej = document.getElementById("template_number");
+        var elementoj = templatej.content.cloneNode(true);
+        elementoj = pushRandomNumberToList(1, 50, random_numb_list, elementoj);
+        // elementoj.id="row"+i+"number"+j
+        row.appendChild(elementoj);
+        document.getElementsByClassName("number")[counter2].id =
+          "row" + i + "number" + j;
+        counter2++;
+      }
+    }
+    if (index != 0) {
+      const varnone = document.getElementsByClassName("all-cardboard")[index];
+      varnone.style.display = "none";
+    }
+  }
+}
+
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1));
+}
+
+function isNumberRepeated(number, number_list) {
+  return number_list.includes(number);
+}
+
+function pushRandomNumberToList(min, max, number_list, elemento) {
+  var comprobar = false;
+  while (comprobar === false) {
+    const randomNumber = generateRandomNumber(min, max);
+    if (!isNumberRepeated(randomNumber, number_list)) {
+      comprobar = true;
+      number_list.push(randomNumber);
+      elemento.querySelector(".number").innerText = randomNumber + 1;
+      return elemento;
+    }
+  }
+}
+
+function generateNumberCheck(lista) {
+  var continuar = false;
+  var random_number = Math.random() * 50;
+  for (let k = 0; k < lista.length; k++) {
+    if (random_number === lista[k]) {
+    }
+  }
+}
+
+function playBingo() {
+  if ((usuarios.length === 4) & (sizeCardBoard !== 0)) {
+    // window.location.href = "bingo.html";
+    var section1 = document.getElementById("square");
+    section1.style.display = "none";
+    var section = document.getElementById("second-page");
+
+    section.style.display = "flex";
+    generateBingo();
+  } else {
+    window.alert(
+      "Deben ser 4 jugadores para empezar y debe seleccionar un tamaño"
+    );
+  }
 }
 
 function savingPlayerName() {

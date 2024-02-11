@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,8 +18,8 @@
         class="actual_frame frame-inicio"
         style="width: 400px; height: 400px"
       >
-        <main class="inner_square">
-          <div class="row">
+        <main id="bingo-matrix">
+          <!-- <div class="row">
             <div class="number"></div>
             <div class="number"></div>
             <div class="number"></div>
@@ -35,20 +35,18 @@
             <div class="number">9</div>
             <div class="number">10</div>
             <div class="number"></div>
-          </div>
-
-          <template id="template-lista">
-            <div class="field">
-              Jugador <span class="numberPlayer"></span>:
-              <span class="namePlayer"></span>
-            </div>
+          </div> -->
+          <template id="template_row">
+            <div class="row"></div>
+          </template>
+          <template id="template_number">
+            <div><span class="number"></span></div>
           </template>
         </main>
       </article>
       <div class="triangle_right"></div>
     </section>
-    <a href="bingo.html">
-      <button class="boton">Iniciar partida</button>
-    </a>
+    <input type="text" placeholder="Ingrese nombre" id="name_input" />
+    <script src="./script.js"></script>
   </body>
-</html>
+</html> -->

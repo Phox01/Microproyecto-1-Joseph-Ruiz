@@ -8,7 +8,7 @@
   </head>
   <body>
     <h2>Hey Bingo!</h2>
-    <section class="square">
+    <section id="square">
       <article class="frame-inicio">
         <main class="actual_frame">
           <p>Registra a cuatro jugadores para poder comenzar la partida</p>
@@ -19,9 +19,9 @@
             <div onclick="getID(this)" class="size" id="s4x4">4x4</div>
             <div onclick="getID(this)" class="size" id="s5x5">5x5</div>
           </main>
-          <a href="bingo.html">
-            <button class="boton">Iniciar partida</button>
-          </a>
+          <!-- <a href="bingo.html"> -->
+          <button onclick="playBingo()" class="boton">Iniciar partida</button>
+          <!-- </a> -->
         </main>
       </article>
       <article class="frame-inicio">
@@ -39,6 +39,38 @@
           </template>
         </main>
       </article>
+    </section>
+    <section id="second-page" style="display: none">
+      <header>
+        <div class="circle"></div>
+      </header>
+
+      <section id="game">
+        <div class="triangle_left"></div>
+        <article id="board"></article>
+
+        <template id="template_row">
+          <div class="row"></div>
+        </template>
+
+        <template id="template_number">
+          <div><span class="number"></span></div>
+        </template>
+
+        <template id="template_board">
+          <article class="all-cardboard">
+            <div><span class="player"></span></div>
+            <article
+              class="actual_frame frame-inicio"
+              style="width: 500px; height: 500px"
+            >
+              <main class="bingo-matrix"></main>
+            </article>
+          </article>
+        </template>
+
+        <div class="triangle_right"></div>
+      </section>
     </section>
 
     <script src="./script.js"></script>
