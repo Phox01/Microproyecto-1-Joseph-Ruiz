@@ -10,20 +10,23 @@
     <h2>Hey Bingo!</h2>
     <section class="square">
       <article class="frame-inicio">
-        <p>Registra a cuatro jugadores para poder comenzar la partida</p>
-        <input type="text" placeholder="Ingrese nombre" id="name_input" />
-        <p>Escoja el tamaño del cartón</p>
-        <main class="options">
-          <div onclick="changeClass()" class="tamaño" id="3x3">3x3</div>
-          <div onclick="changeClass()" class="tamaño" id="4x4">4x4</div>
-          <div onclick="changeClass()" class="tamaño" id="5x5">5x5</div>
+        <main class="actual_frame">
+          <p>Registra a cuatro jugadores para poder comenzar la partida</p>
+          <input type="text" placeholder="Ingrese nombre" id="name_input" />
+          <p>Escoja el tamaño del cartón</p>
+          <main class="options">
+            <div onclick="getID(this)" class="size" id="s3x3">3x3</div>
+            <div onclick="getID(this)" class="size" id="s4x4">4x4</div>
+            <div onclick="getID(this)" class="size" id="s5x5">5x5</div>
+          </main>
+          <a href="bingo.html">
+            <button class="boton">Iniciar partida</button>
+          </a>
         </main>
-        <a href="bingo.html">
-          <button class="boton">Iniciar partida</button>
-        </a>
       </article>
       <article class="frame-inicio">
-        <main id="lista">
+        <main class="actual_frame" id="lista">
+          <p>Jugadores</p>
           <template id="template-lista">
             <div class="field">
               Jugador <span class="numberPlayer"></span>:

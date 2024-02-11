@@ -1,6 +1,30 @@
 const usuarios = [];
 const ListaUsuarios = document.getElementById("lista");
-var
+var sizeCardBoard = 0;
+
+function getID(element) {
+  if (element.id === "s5x5") {
+    sizeCardBoard = 5;
+  }
+  if (element.id === "s4x4") {
+    sizeCardBoard = 4;
+  }
+  if (element.id === "s3x3") {
+    sizeCardBoard = 3;
+  }
+  // window.alert(element.id);
+  // window.alert(sizeCardBoard);
+
+  var elements = document.getElementsByClassName("size_active");
+
+  // Add a click event listener to each element
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].classList.replace("size_active", "size");
+  }
+
+  const elemento = document.querySelector("#" + element.id);
+  elemento.classList.replace("size", "size_active");
+}
 
 function clearText() {
   document.getElementById("name_input").value = "";

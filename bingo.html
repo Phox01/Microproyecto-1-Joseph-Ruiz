@@ -8,8 +8,16 @@
   </head>
   <body>
     <h2>Hey Bingo!</h2>
+    <header>
+      <div class="circle"></div>
+    </header>
+
     <section class="game">
-      <article class="frame-inicio" style="width: 400px; height: 400px">
+      <div class="triangle_left"></div>
+      <article
+        class="actual_frame frame-inicio"
+        style="width: 400px; height: 400px"
+      >
         <main class="inner_square">
           <div class="row">
             <div class="number"></div>
@@ -24,12 +32,20 @@
           </div>
 
           <div class="row">
-            <div class="number"></div>
-            <div class="number"></div>
+            <div class="number">9</div>
+            <div class="number">10</div>
             <div class="number"></div>
           </div>
+
+          <template id="template-lista">
+            <div class="field">
+              Jugador <span class="numberPlayer"></span>:
+              <span class="namePlayer"></span>
+            </div>
+          </template>
         </main>
       </article>
+      <div class="triangle_right"></div>
     </section>
     <a href="bingo.html">
       <button class="boton">Iniciar partida</button>

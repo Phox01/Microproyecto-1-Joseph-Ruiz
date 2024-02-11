@@ -18,6 +18,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+  margin-top: 20px;
 }
 
 .inner_square {
@@ -46,17 +48,21 @@ body {
 
 .frame-inicio {
   width: 464px;
+  font-size: 25px;
+  text-align: center;
+  background: #f2faff;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
   height: 559px;
+  border-radius: 17px;
+}
+
+.actual_frame {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-shrink: 0;
-  border-radius: 17px;
-  text-align: center;
-  font-size: 25px;
-  background: #f2faff;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+
   gap: 2rem;
 
   #lista {
@@ -82,8 +88,16 @@ body {
     flex-direction: row;
     gap: 7px;
 
-    .tamaño {
+    .size {
       color: #afafaf;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #afafaf;
+      width: 80px;
+    }
+    .size_active {
+      background: #f08b82;
+      color: #ffffff;
       padding: 10px;
       border-radius: 12px;
       border: 1px solid #afafaf;
@@ -94,6 +108,7 @@ body {
   p {
     padding: 20px;
     margin: 0;
+    margin-top: 20px;
   }
 
   .boton {
@@ -108,8 +123,40 @@ body {
   }
 
   .boton:hover,
-  .tamaño:hover {
+  .size:hover {
     background: #ffa098;
     transform: scale(1.01) translateY(-2px);
   }
+
+  .number {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.triangle_left {
+  border-top: 25px solid transparent;
+  border-right: 50px solid #f2faff;
+  border-bottom: 25px solid transparent;
+}
+
+.triangle_right {
+  border-top: 25px solid transparent;
+  border-left: 50px solid #f2faff;
+  border-bottom: 25px solid transparent;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: #f2faff;
+  border-radius: 50%;
+  box-shadow: -5px -10px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
