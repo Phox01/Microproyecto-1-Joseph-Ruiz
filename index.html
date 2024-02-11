@@ -11,17 +11,33 @@
     <section class="square">
       <article class="frame-inicio">
         <p>Registra a cuatro jugadores para poder comenzar la partida</p>
-        <div class="campo">Nombre</div>
+        <input type="text" placeholder="Ingrese nombre" id="name_input" />
         <p>Escoja el tamaño del cartón</p>
         <main class="options">
           <div class="tamaño">3x3</div>
           <div class="tamaño">4x4</div>
           <div class="tamaño">5x5</div>
         </main>
-
-        <button class="boton">Iniciar partida</button>
+        <a href="bingo.html">
+          <button class="boton">Iniciar partida</button>
+        </a>
       </article>
-      <article class="frame-inicio"></article>
+      <article class="frame-inicio">
+        <main id="lista">
+          <template id="template-lista">
+            <div class="field">
+              Jugador <span class="numberPlayer"></span>:
+              <span class="namePlayer"></span>
+            </div>
+          </template>
+
+          <template id="template-mensaje">
+            <p>El límite de los jugadores es de 4</p>
+          </template>
+        </main>
+      </article>
     </section>
+
+    <script src="./script.js"></script>
   </body>
 </html>

@@ -1,39 +1,115 @@
-body{
-  background-color:#9AC8EB;
-  h2{
+body {
+  background-color: #9ac8eb;
+  h2 {
     color: #000;
     text-align: center;
     font-size: 50px;
-  
   }
 }
 
-.frame-inicio{
+.square {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: 100px;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner_square {
+  width: 350px;
+  height: 350px;
+  background: #f08b82;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .number {
+    background-color: #ffffff;
+    width: 72px;
+    height: 72px;
+    box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  }
+}
+
+.frame-inicio {
   width: 464px;
   height: 559px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-shrink: 0;
   border-radius: 17px;
   text-align: center;
   font-size: 25px;
-  background: #F2FAFF;
+  background: #f2faff;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
-  
-  .campo{
-    color: #AFAFAF;
+  gap: 2rem;
+
+  #lista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #name_input,
+  .field {
+    color: #afafaf;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #afafaf;
+    width: 300px;
+    font-size: 25px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+
+    .tamaño {
+      color: #afafaf;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #afafaf;
+      width: 80px;
+    }
+  }
+
+  p {
+    padding: 20px;
+    margin: 0;
+  }
+
+  .boton {
+    border-radius: 13px;
+    font-size: 25px;
+    background: #f08b82;
+    color: #ffffff;
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #AFAFAF;
-    width: 300px
-    
+    border: 1px solid #afafaf;
+    width: 350px;
   }
-  
-  p{
-    padding: 20px;
-    margin:0;
+
+  .boton:hover,
+  .tamaño:hover {
+    background: #ffa098;
+    transform: scale(1.01) translateY(-2px);
   }
 }
-
