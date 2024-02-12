@@ -46,6 +46,12 @@ body {
   border-radius: 17px;
 }
 
+.player {
+  background: #f08b82;
+  border-radius: 17px;
+  color: #ffffff;
+  width: 10rem;
+}
 .bingo-matrix {
   width: 450px;
   height: 450px;
@@ -67,6 +73,16 @@ body {
     width: 72px;
     height: 72px;
     box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  .number-marked {
+    display: flex;
+    color: #ffffff;
+    background-color: #a52418;
+    width: 72px;
+    height: 72px;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -135,23 +151,6 @@ body {
     margin-top: 20px;
   }
 
-  .boton {
-    border-radius: 13px;
-    font-size: 25px;
-    background: #f08b82;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #afafaf;
-    width: 350px;
-  }
-
-  .boton:hover,
-  .size:hover {
-    background: #ffa098;
-    transform: scale(1.01) translateY(-2px);
-  }
-
   .number {
     display: flex;
     justify-content: center;
@@ -160,13 +159,13 @@ body {
   }
 }
 
-.triangle_left {
+#triangle_left {
   border-top: 25px solid transparent;
   border-right: 50px solid #f2faff;
   border-bottom: 25px solid transparent;
 }
 
-.triangle_right {
+#triangle_right {
   border-top: 25px solid transparent;
   border-left: 50px solid #f2faff;
   border-bottom: 25px solid transparent;
@@ -177,10 +176,43 @@ header {
   justify-content: center;
 }
 
-.circle {
+#circle {
   width: 100px;
   height: 100px;
   background-color: #f2faff;
   border-radius: 50%;
   box-shadow: -5px -10px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+}
+
+#turn {
+  border-radius: 13px;
+  font-size: 25px;
+  background: #f08b82;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #afafaf;
+  width: 80px;
+  height: 20px;
+}
+
+.boton {
+  border-radius: 13px;
+  font-size: 25px;
+  background: #f08b82;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #afafaf;
+  width: 350px;
+}
+
+.boton:hover,
+.size:hover {
+  background: #ffa098;
+  transform: scale(1.01) translateY(-2px);
 }

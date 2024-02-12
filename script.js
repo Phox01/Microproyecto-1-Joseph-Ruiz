@@ -1,7 +1,10 @@
 const usuarios = [];
 const ListaUsuarios = document.getElementById("lista");
 const MatrizBingo = document.getElementById("board");
+const listanumerosgenerados = [];
 var sizeCardBoard = 0;
+var position = 0;
+var turn = 1;
 
 function getID(element) {
   if (element.id === "s5x5") {
@@ -48,7 +51,6 @@ function generateBingo() {
       // elementoi.id = "row" + i;
       board.appendChild(elementoi);
       document.getElementsByClassName("row")[counter].id = "row" + index + i;
-      counter++;
 
       for (let j = 0; j < sizeCardBoard; j++) {
         const row = document.getElementById("row" + index + i);
@@ -58,9 +60,10 @@ function generateBingo() {
         // elementoj.id="row"+i+"number"+j
         row.appendChild(elementoj);
         document.getElementsByClassName("number")[counter2].id =
-          "row" + i + "number" + j;
+          "row" + counter + "number" + counter2;
         counter2++;
       }
+      counter++;
     }
     if (index != 0) {
       const varnone = document.getElementsByClassName("all-cardboard")[index];
@@ -90,11 +93,214 @@ function pushRandomNumberToList(min, max, number_list, elemento) {
   }
 }
 
-function generateNumberCheck(lista) {
-  var continuar = false;
-  var random_number = Math.random() * 50;
-  for (let k = 0; k < lista.length; k++) {
-    if (random_number === lista[k]) {
+function checkNumbersInCardBoard(random_number) {
+  var counter = 0;
+  var counter2 = 0;
+  for (let i = 0; i < sizeCardBoard * 4; i++) {
+    for (let j = 0; j < sizeCardBoard; j++) {
+      const number = document.getElementById(
+        "row" + counter + "number" + counter2
+      );
+      var content = number.textContent;
+      if (content == random_number) {
+        number.classList.replace("number", "number-marked");
+      }
+      counter2++;
+    }
+    counter++;
+  }
+}
+
+function countingVertical() {
+  var counter = 0;
+  var counter2 = 0;
+  var counter3 = 0;
+  for (let i = 0; i < sizeCardBoard * 4; i++) {
+    for (let j = 0; j < sizeCardBoard; j++) {
+      const number = document.getElementById(
+        "row" + counter + "number" + counter2
+      );
+      var classNumber = number.className;
+      if (classNumber === "number") {
+        var provcounter = counter;
+        var provcounter2 = counter2;
+        counter = +sizeCardBoard * (i + 1) - 1;
+        counter2 = counter2 + sizeCardBoard * (i + 1) - j;
+        counter3 = 0;
+        break;
+      } else {
+        counter3 += 1;
+        if (counter3 === sizeCardBoard) {
+          if (counter >= 0 && x <= sizeCardBoard - 1) {
+            usuarios[0].score += 1;
+          }
+          if (counter >= sizeCardBoard && x <= sizeCardBoard * 2 - 1) {
+            usuarios[1].score += 1;
+          }
+          if (counter >= sizeCardBoard * 2 && x <= sizeCardBoard * 3 - 1) {
+            usuarios[2].score += 1;
+          }
+          if (counter >= sizeCardBoard * 3 && x <= sizeCardBoard * 4 - 1) {
+            usuarios[3].score += 1;
+          }
+          return (bool = true);
+        }
+      }
+      counter2++;
+    }
+    counter++;
+  }
+}
+
+function countingHorizontal() {
+  var counter = 0;
+  var counter2 = 0;
+  var counter3 = 0;
+  for (let i = 0; i < sizeCardBoard * 4; i++) {
+    for (let j = 0; j < sizeCardBoard; j++) {
+      const number = document.getElementById(
+        "row" + counter + "number" + counter2
+      );
+      var classNumber = number.className;
+      if (classNumber === "number") {
+        var provcounter = counter;
+        var provcounter2 = counter2;
+        counter = counter + sizeCardBoard * (i + 1) - provcounter - 1;
+        counter2 = counter2 + sizeCardBoard * (i + 1) - j;
+        counter3 = 0;
+        break;
+      } else {
+        counter3 += 1;
+        if (counter3 === sizeCardBoard) {
+          if (counter >= 0 && x <= sizeCardBoard - 1) {
+            usuarios[0].score += 1;
+          }
+          if (counter >= sizeCardBoard && x <= sizeCardBoard * 2 - 1) {
+            usuarios[1].score += 1;
+          }
+          if (counter >= sizeCardBoard * 2 && x <= sizeCardBoard * 3 - 1) {
+            usuarios[2].score += 1;
+          }
+          if (counter >= sizeCardBoard * 3 && x <= sizeCardBoard * 4 - 1) {
+            usuarios[3].score += 1;
+          }
+          return (bool = true);
+        }
+      }
+      counter2++;
+    }
+    counter++;
+  }
+}
+
+function countingScore() {
+  var counter = 0;
+  var counter2 = 0;
+  var counter3 = 0;
+  for (let i = 0; i < sizeCardBoard * 4; i++) {
+    for (let j = 0; j < sizeCardBoard; j++) {
+      const number = document.getElementById(
+        "row" + counter + "number" + counter2
+      );
+      var classNumber = number.className;
+      if (classNumber === "number") {
+        var provcounter = counter;
+        var provcounter2 = counter2;
+        counter = counter + sizeCardBoard * (i + 1) - provcounter - 1;
+        counter2 =
+          counter2 + sizeCardBoard * sizeCardBoard * (i + 1) - provcounter2;
+        counter3 = 0;
+        break;
+      } else {
+        counter3 += 1;
+        if (counter3 === sizeCardBoard * sizeCardBoard) {
+          if (counter >= 0 && x <= sizeCardBoard - 1) {
+            window.alert("El ganador es:" + usuarios[0].nombre);
+          }
+          if (counter >= sizeCardBoard && x <= sizeCardBoard * 2 - 1) {
+            window.alert("El ganador es:" + usuarios[1].nombre);
+          }
+          if (counter >= sizeCardBoard * 2 && x <= sizeCardBoard * 3 - 1) {
+            window.alert("El ganador es:" + usuarios[2].nombre);
+          }
+          if (counter >= sizeCardBoard * 3 && x <= sizeCardBoard * 4 - 1) {
+            window.alert("El ganador es:" + usuarios[3].nombre);
+          }
+          return (bool = true);
+        }
+      }
+      counter2++;
+    }
+    counter++;
+  }
+}
+
+function checkFullCardBoard() {
+  var bool = false;
+  var counter = 0;
+  var counter2 = 0;
+  var counter3 = 0;
+  for (let i = 0; i < sizeCardBoard * 4; i++) {
+    if (counter === sizeCardBoard * 4) {
+      return bool;
+    }
+    for (let j = 0; j < sizeCardBoard; j++) {
+      const number = document.getElementById(
+        "row" + counter + "number" + counter2
+      );
+      var classNumber = number.className;
+      if (classNumber === "number") {
+        var provcounter = counter;
+        var provcounter2 = counter2;
+        counter = counter + sizeCardBoard * (i + 1) - provcounter - 1;
+        counter2 =
+          counter2 + sizeCardBoard * sizeCardBoard * (i + 1) - provcounter2;
+        counter3 = 0;
+        break;
+      } else {
+        counter3 += 1;
+        if (counter3 === sizeCardBoard * sizeCardBoard) {
+          if (counter >= 0 && x <= sizeCardBoard - 1) {
+            window.alert("El ganador es:" + usuarios[0].nombre);
+          }
+          if (counter >= sizeCardBoard && x <= sizeCardBoard * 2 - 1) {
+            window.alert("El ganador es:" + usuarios[1].nombre);
+          }
+          if (counter >= sizeCardBoard * 2 && x <= sizeCardBoard * 3 - 1) {
+            window.alert("El ganador es:" + usuarios[2].nombre);
+          }
+          if (counter >= sizeCardBoard * 3 && x <= sizeCardBoard * 4 - 1) {
+            window.alert("El ganador es:" + usuarios[3].nombre);
+          }
+          return (bool = true);
+        }
+      }
+      counter2++;
+    }
+    counter++;
+  }
+}
+
+function generateNumber() {
+  var circle = document.getElementById("circle");
+
+  var comprobar = false;
+  while (comprobar === false) {
+    const number = generateRandomNumber(1, 50);
+    if (!isNumberRepeated(number, listanumerosgenerados)) {
+      circle.textContent = number;
+      checkNumbersInCardBoard(number);
+      var value = checkFullCardBoard();
+      listanumerosgenerados.push(number);
+      if (turn === 25 || value) {
+        var section = document.getElementById("second-page");
+
+        section.style.display = "none";
+      }
+      turn++;
+      const turn1 = document.getElementById("turn");
+      turn1.textContent = "Turno:" + turn;
+      comprobar = true;
     }
   }
 }
@@ -108,10 +314,50 @@ function playBingo() {
 
     section.style.display = "flex";
     generateBingo();
+    const turn1 = document.getElementById("turn");
+    turn1.textContent = "Turno:" + turn;
   } else {
     window.alert(
       "Deben ser 4 jugadores para empezar y debe seleccionar un tamaño"
     );
+  }
+}
+
+function changeRight() {
+  if (position === 3) {
+    const varnone = document.getElementsByClassName("all-cardboard")[position];
+    varnone.style.display = "none";
+
+    const varnone2 = document.getElementsByClassName("all-cardboard")[0];
+    varnone2.style.display = "flex";
+    position = 0;
+  } else {
+    const varnone = document.getElementsByClassName("all-cardboard")[position];
+    varnone.style.display = "none";
+
+    const varnone2 =
+      document.getElementsByClassName("all-cardboard")[position + 1];
+    varnone2.style.display = "flex";
+    position++;
+  }
+}
+
+function changeLeft() {
+  if (position === 0) {
+    const varnone = document.getElementsByClassName("all-cardboard")[position];
+    varnone.style.display = "none";
+
+    const varnone2 = document.getElementsByClassName("all-cardboard")[3];
+    varnone2.style.display = "flex";
+    position = 3;
+  } else {
+    const varnone = document.getElementsByClassName("all-cardboard")[position];
+    varnone.style.display = "none";
+
+    const varnone2 =
+      document.getElementsByClassName("all-cardboard")[position - 1];
+    varnone2.style.display = "flex";
+    position--;
   }
 }
 

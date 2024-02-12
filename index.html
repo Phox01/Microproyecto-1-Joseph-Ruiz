@@ -41,12 +41,16 @@
       </article>
     </section>
     <section id="second-page" style="display: none">
-      <header>
-        <div class="circle"></div>
+      <header style="gap: 30px">
+        <div id="circle"></div>
+        <button onclick="generateNumber()" class="boton" style="width: 175px">
+          Generar número
+        </button>
+        <div id="turn"></div>
       </header>
 
       <section id="game">
-        <div class="triangle_left"></div>
+        <div onclick="changeLeft()" class="triangle" id="triangle_left"></div>
         <article id="board"></article>
 
         <template id="template_row">
@@ -69,7 +73,7 @@
           </article>
         </template>
 
-        <div class="triangle_right"></div>
+        <div onclick="changeRight()" class="triangle" id="triangle_right"></div>
       </section>
     </section>
 
